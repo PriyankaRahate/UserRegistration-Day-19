@@ -11,8 +11,16 @@ public class UserRegistration {
                 System.out.println(Pattern.matches("^[A-Z]{1}[A-Za-z]{2,}$", firstName));
         }
 
-        public static void main(String[] args) {
-                UserRegistration userRegistration = new UserRegistration();
-                userRegistration.validFirstName();
+       
+        public  void validLastName(){
+            System.out.print("Enter last Name : ");
+            String lastName = scanner.next();
+            System.out.println(Pattern.matches("^[A-Z]{1}[A-Za-z]{2,}$", lastName));
     }
+
+    public static void main(String[] args) {
+            UserRegistration userRegistration = new UserRegistration();
+            userRegistration.validFirstName();
+            userRegistration.validLastName();
+}
 }
