@@ -17,10 +17,10 @@ public class UserRegistration {
                 System.out.println(Pattern.matches("^[A-Z]{1}[A-Za-z]{2,}$", lastName));
         }
 
-        public  void validEmail(){
-                System.out.print("Enter email : ");
-                String email = scanner.nextLine();
-                System.out.println(Pattern.matches("^(abc)[.]{1}[A-Za-z]*[@]{1}(bl.co)(.in)*$", email));
+        public  void validEmail(String[] email){
+                for(int i = 0; i< email.length; i++ ){
+                        System.out.print(Pattern.matches("^[\\w+_-]+(?:\\.[\\w+_-]+)*[@][\\w]{1,}([.]{1}[a-z]{2,}){1,2}$", email[i]) + " ");
+                }
         }
 
         public void validPhoneNumber(){
@@ -36,11 +36,13 @@ public class UserRegistration {
         }
 
         public static void main(String[] args) {
+                String[] validEmailSample = {"abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com"};
+                String[] invalidEmailSample = {"abc", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com", "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au" };
+
                 UserRegistration userRegistration = new UserRegistration();
-                userRegistration.validFirstName();
-                userRegistration.validLastName();
-                userRegistration.validEmail();
-                userRegistration.validPhoneNumber();
-                userRegistration.validPassword();
+                System.out.println("Valid email :");
+                userRegistration.validEmail(validEmailSample);
+                System.out.println("\nInvalid emails :");
+                userRegistration.validEmail(invalidEmailSample);
     }
 }
