@@ -1,7 +1,7 @@
 package userRegistrationday19;
 import java.util.Scanner;
 import java.util.regex.Pattern;
-
+import java.util.regex.Pattern;
 public class UserRegistration {
         Scanner scanner = new Scanner(System.in);
 
@@ -24,10 +24,19 @@ public class UserRegistration {
             System.out.println(Pattern.matches("^(abc)[.]{1}[A-Za-z]*[@]{1}(bl.co)(.in)*$", email));
     }
 
+        public void validPhoneNumber(){
+            System.out.print("Enter phone number : ");
+            String phone = scanner.nextLine();
+            System.out.println(Pattern.matches("^(91)[\\s]{1}[1-9]{1}[0-9]{9}$", phone));
+    }
+
     public static void main(String[] args) {
             UserRegistration userRegistration = new UserRegistration();
             userRegistration.validFirstName();
             userRegistration.validLastName();
             userRegistration.validEmail();
+            userRegistration.validPhoneNumber();
 }
+
+
 }
